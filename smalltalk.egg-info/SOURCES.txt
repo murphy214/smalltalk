@@ -6,5 +6,4 @@ smalltalk/websocket_server.py
 smalltalk.egg-info/PKG-INFO
 smalltalk.egg-info/SOURCES.txt
 smalltalk.egg-info/dependency_links.txt
-smalltalk.egg-info/requires.txt
 smalltalk.egg-info/top_level.txt

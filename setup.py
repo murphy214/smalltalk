@@ -11,7 +11,7 @@ setup(name='smalltalk',
       packages=['smalltalk'],
       #dependency_links=['http://github.com/murphy214/nlgeojson/tarball/master#egg=package-1.0'],#http://github.com/murphy214/pipeleaflet/tarball/master#egg=package-1.1','http://github.com/murphy214/pipevts/tarball/master#egg=package-1.0','http://github.com/murphy214/pipegls/tarball/master#egg=package-1.0']
 
-      install_requires = ['nlgeojson']
+      dependency_links = ['http://github.com/murphy214/nlgeojson/tarball/master#egg=nlgeojson-1.0.0']
 
       #dependency_links=['http://github.com/murphy214/nlgeojson.git#egg=nlgeojson-1.0']#http://github.com/murphy214/pipeleaflet/tarball/master#egg=package-1.1','http://github.com/murphy214/pipevts/tarball/master#egg=package-1.0','http://github.com/murphy214/pipegls/tarball/master#egg=package-1.0']
 
