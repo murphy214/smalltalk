@@ -1,5 +1,6 @@
 # smalltalk - Mapping in the terminal!
 
+![smalltalk](https://user-images.githubusercontent.com/10904982/33521221-0267b51c-d79a-11e7-9be3-c7fcc0ab96f8.gif)
 
 # What it does 
 
