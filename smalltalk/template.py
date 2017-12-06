@@ -1,4 +1,4 @@
-
+import os
 
 def make_template():
 	template = '''
@@ -151,7 +151,7 @@ function menuPopup() {
 
 <script>var center = [-85.0,40.0253597813];
 
-mapboxgl.accessToken = 'pk.eyJ1IjoicnNiYXVtYW5uIiwiYSI6IjdiOWEzZGIyMGNkOGY3NWQ4ZTBhN2Y5ZGU2Mzg2NDY2In0.jycgv7qwF8MMIWt4cT0RaQ';
+mapboxgl.accessToken = 'xxxxxyyyyyy';
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/dark-v9',
@@ -386,7 +386,7 @@ map.on('mousemove', function (e) {
 
 </body></html>
 
-'''
+'''.replace('xxxxxyyyyyy',os.environ['MAPBOX_ACCESS_TOKEN'])
 
 	with open('index.html','wb') as f:
 		f.write(template)
