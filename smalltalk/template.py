@@ -7,9 +7,10 @@ def make_template():
   <meta charset="utf-8">
   <title>mbview - vector</title>
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.js"></script>
-  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://rawgit.com/murphy214/99ce4a53429faff47981267e5fd26aae/raw/616cec8830390332c3e3ad6d17cd956cc7c02428/mapbox-gl.js"></script>
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css" rel="stylesheet">
   <link href="https://www.mapbox.com/base/latest/base.css" rel="stylesheet">
+
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
   <style>
