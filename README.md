@@ -10,6 +10,16 @@ Smalltalk is designed to be used in something like a python ide where you can in
 ```
 pip install git+https://github.com/murphy214/smalltalk
 ```
+
+# Setup 
+
+**You must export an enviromental variable being a valid mapbox api key for this module to work this should either be input into the terminal or added to your .bash_profile the latter preferably** 
+
+```
+export MAPBOX_ACCESS_TOKEN='pk.0000.1111' // Your api key
+```
+
+
 # Usage 
 
 To use small talk is really simple. (See caveats on dataframes though) Just import the Map class from small talk, set an instance of that class on some variable and send dataframes to it! **It should be noted things won't work write in a script this is for an interface remember. (terminal,jupyter,etc.)**
