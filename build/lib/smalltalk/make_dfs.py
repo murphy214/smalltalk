@@ -23,6 +23,9 @@ def determine_coord_type(coords):
 
 
 def determine_type(data):
+	if 'Geometry' in data.columns:
+		return 'geojson'
+
 	coordbool,coordheader = False,''
 	latbool,latheader = False,''
 	longbool,longheader = False,''
@@ -80,6 +83,8 @@ def create_geojson(*dfs):
 			totals.append(nl.make_lines(i,'',raw=True))
 		if typedf == 'polygons':
 			totals.append(nl.make_polygons(i,'',raw=True))
+		if typedf == 'geojson':
+			totals.append(nl.make_geojson(i,'',raw=True))
 		
 		count += 1
 	return '{"type": "FeatureCollection", "features": [%s]}' % ','.join(totals)

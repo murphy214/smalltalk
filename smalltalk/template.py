@@ -3,6 +3,8 @@ import os
 def make_template():
 	template = '''
 
+
+
 <html><head>
   <meta charset="utf-8">
   <title>mbview - vector</title>
@@ -161,6 +163,7 @@ var map = new mapboxgl.Map({
   hash: true,
   maxZoom: 30
 });
+map.showTileBoundaries = true
 
 var layers = {
   pts: [],
@@ -268,7 +271,21 @@ map.on('load', function () {
 
   Add_Geojson(message)
 
-
+  function GetBounds() {
+    var mb_bound = map.getBounds()
+    var ne = mb_bound._ne
+    var sw = mb_bound._sw
+  
+    var n = ne.lat
+    var s = sw.lat
+    var e = ne.lng
+    var w = sw.lng
+    var bounds = {'n':n,'s':s,'e':e,'w':w}
+    return JSON.stringify(bounds)
+  
+  }
+  var boolval = false
+  
   function init() {
     // Connect to Web Socket
     ws = new WebSocket("ws://localhost:9001/");
@@ -280,7 +297,17 @@ map.on('load', function () {
     
     ws.onmessage = function(e) {
       // e.data contains received string.
-      map.getSource('a.geojson').setData(JSON.parse(e.data))
+      if (e.data.length == 4) { 
+        ws.send(GetBounds());
+      } else if (e.data.length == 3) {
+        boolval = true
+      } else if (boolval == true) {
+        map.jumpTo(JSON.parse(e.data))
+        boolval = false
+      } else {
+        map.getSource('a.geojson').setData(JSON.parse(e.data))
+
+      }
     };
     
     ws.onclose = function() {
@@ -386,6 +413,11 @@ map.on('mousemove', function (e) {
 
 
 </body></html>
+
+
+
+
+
 
 '''.replace('xxxxxyyyyyy',os.environ['MAPBOX_ACCESS_TOKEN'])
 
