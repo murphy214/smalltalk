@@ -70,7 +70,7 @@ def intersect_bb(bdsref,bds):
 
 # [west, south, east, north]
 def mymap(x,bounds):
-	x = str.split(x,',')
+	x = str.split(str(x),',')
 	if len(x) != 4:
 		return False
 	else:
@@ -82,6 +82,7 @@ class Map:
 	def __init__(self):
 		self.client = ''
 		self.server = ''
+		self.tile = m.Tile(0,0,0)
 		self.bb = {}
 		self.boolval = False
 
@@ -139,8 +140,7 @@ class Map:
 		time.sleep(.1)
 		bb = self.bb
 		#tile = m.Tile(33,48,7)
-		center = [(bb['w'] + bb['e']) / 2.0,(bb['n'] + bb['s']) / 2.0]
-		tile = m.tile(center[0],center[1],5)
+		tile = self.tile
 
 		boolval = True
 		oldoldgetch = 0
@@ -185,6 +185,7 @@ class Map:
 				self.server.send_message(self.client,centerzoom(tile))
 				sys.stdout.write("\rTile:[X:%s,Y:%s,Z:%s]" % (tile.x,tile.y,tile.z) )
 				sys.stdout.flush()
+			self.tile = tile
 
 			#print '\n',oldoldgetch,oldgetch,getchval,'\n'
 			oldoldgetch = oldgetch

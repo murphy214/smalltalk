@@ -280,6 +280,13 @@ map.on('load', function () {
     var s = sw.lat
     var e = ne.lng
     var w = sw.lng
+    if (Math.abs(e) > 180.0) {
+      var e = e - 360.0
+    }
+    if (Math.abs(w) > 180.0) {
+      var w = w - 360.0
+    } 
+
     var bounds = {'n':n,'s':s,'e':e,'w':w}
     return JSON.stringify(bounds)
   
